@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (5.9.0)
+  - AlamofireImage (4.3.0):
+    - Alamofire (~> 5.8)
+  - DeviceKit (5.2.2)
+  - SwiftLint (0.54.0)
+
+DEPENDENCIES:
+  - AlamofireImage
+  - DeviceKit
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlamofireImage
+    - DeviceKit
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  Alamofire: 02b772c9910e8eba1a079227c32fbd9e46c90a24
+  AlamofireImage: 843953fa97bee5f561cf05d83abd759e590b068d
+  DeviceKit: e36aaf2a0d142ef0b4fac2007649a4414af234be
+  SwiftLint: c1de071d9d08c8aba837545f6254315bc900e211
+
+PODFILE CHECKSUM: aaa3a2792d5812d018b0d28bbf18ae95de626150
+
+COCOAPODS: 1.14.3
