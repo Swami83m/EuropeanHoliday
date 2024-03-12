@@ -17,7 +17,7 @@ final class EuropeanHolidayViewModelTests: XCTestCase, HolidayListVMDelegate {
     override func setUp() {
         sut = HolidayListViewModel()
         sut.viewDelegate = self
-        expectationHoliday = self.expectation(description: "Holiday List Should be fetched")
+        //expectationHoliday = self.expectation(description: "Holiday List Should be fetched")
     }
     
     override func tearDown() {
@@ -26,7 +26,9 @@ final class EuropeanHolidayViewModelTests: XCTestCase, HolidayListVMDelegate {
     }
     
     func testDataViewModel()
+    
     {
+        expectationHoliday = self.expectation(description: "Holiday List Should be fetched")
         sut.getHolidayListByMockModel(dataModel: getSampleMockedJSON())
         wait(for: [expectationHoliday], timeout: 4)
         XCTAssertFalse(holidayList.isEmpty)
