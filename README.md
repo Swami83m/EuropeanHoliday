@@ -1,2 +1,3 @@
 # EuropeanHoliday
- Assesment
+ Assesment to integrate the webservice and update the UI
+ 
