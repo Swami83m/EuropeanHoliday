@@ -8,16 +8,14 @@
 import XCTest
 @testable import EuropeanHoliday
 
-final class EuropeanHolidayViewModelTests: XCTestCase, HolidayListVMDelegate {
+final class EuropeanHolidayViewModelTests: XCTestCase, HolidayListViewModelDelegate {
     
     var sut: HolidayListViewModel!
     var expectationHoliday: XCTestExpectation!
     var holidayList: [GetHolidayListData] = []
     
     override func setUp() {
-        sut = HolidayListViewModel()
-        sut.viewDelegate = self
-        //expectationHoliday = self.expectation(description: "Holiday List Should be fetched")
+        sut = HolidayListViewModel.init(restClient: MockHolidayListServiceManager(), viewDelegate: self, selectedCountry: "GB")
     }
     
     override func tearDown() {
@@ -29,8 +27,8 @@ final class EuropeanHolidayViewModelTests: XCTestCase, HolidayListVMDelegate {
     
     {
         expectationHoliday = self.expectation(description: "Holiday List Should be fetched")
-        sut.getHolidayListByMockModel(dataModel: getSampleMockedJSON())
-        wait(for: [expectationHoliday], timeout: 4)
+        sut.getHolidayListfromServer()
+        wait(for: [expectationHoliday], timeout: 8)
         XCTAssertFalse(holidayList.isEmpty)
     }
     
@@ -42,37 +40,6 @@ final class EuropeanHolidayViewModelTests: XCTestCase, HolidayListVMDelegate {
     
     func fetchDataFailure(message: String, canRetry: Bool) {
         expectationHoliday.fulfill()
-    }
-    
-    func getSampleMockedJSON() -> [GetHolidayListData] {
-        // Your mock JSON data
-        let jsonData = """
-            {
-                "name": "Newyear",
-                "date": "2024-01-01",
-                "fixed": false
-            }
-            """.data(using: .utf8)!
-        // Use JSONDecoder to parse the data into your model
-        do {
-            let holiday = try JSONDecoder().decode(GetHolidayListData.self, from: jsonData)
-            return [holiday]
-            
-        } catch {
-            return []
-        }
-    }
-    
-    func testSelectedCountryNotEmpty()
-    {
-        sut.selectedCountry = "AU"
-        XCTAssertNotNil(sut.selectedCountry)
-        let isEmptyCode = isEmptyChecking(title: sut.selectedCountry ?? "")
-        XCTAssertFalse(isEmptyCode, "CountryCode should not be empty")
-    }
-    
-    func isEmptyChecking(title: String) -> Bool {
-        return title.isEmpty
     }
 }
 

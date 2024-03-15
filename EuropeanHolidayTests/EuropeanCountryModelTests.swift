@@ -2,21 +2,16 @@
 //  EuropeanCountryModelTests.swift
 //  EuropeanHolidayTests
 //
-//  
+//
 //
 
 import XCTest
 @testable import EuropeanHoliday
 final class EuropeanCountryModelTests: XCTestCase {
-
-    var countryModel: [GetCountryListData] = []
-    var sut: MockRestClient!
     
     override func setUp() {
-        sut = MockRestClient()
     }
     override func tearDown() {
-        sut = nil
         super.tearDown()
     }
     func testParsingMockJSON() {
@@ -38,14 +33,6 @@ final class EuropeanCountryModelTests: XCTestCase {
             XCTFail("Failed to decode JSON: \(error)")
         }
     }
-    func testEmptyCountryCode() {
-        let emptyCoutryCode = "AU"
-        let isEmptyCode = isEmptyChecking(title: emptyCoutryCode)
-        XCTAssertFalse(isEmptyCode, "CountryCode should not be empty")
-    }
-    func isEmptyChecking(title: String) -> Bool {
-        return title.isEmpty
-    }
     
     func testCountryList() {
         let t = type(of: self)
@@ -53,19 +40,8 @@ final class EuropeanCountryModelTests: XCTestCase {
         if let filePath = bundle.path(forResource: "CountryListMockModel", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
-                let model  = try JSONDecoder().decode([GetHolidayListData].self, from: data)
-                
-                sut.getRequestForJSON(apiKey:"",
-                    serviceScheme: HolidayServiceScheme.holidayListJSON,
-                                             holidayResponseModel: [GetCountryListData].self, mockJsonModel: data) { [self] (success, json, message) in
-                    if success {
-                    guard let dataModel = json else { fatalError("Unexpected data") } // if success json shouldn't be null
-                        if dataModel.count > 0 {
-                            self.countryModel  = dataModel
-                        }
-                    }
-                }
-            XCTAssertFalse(model.isEmpty)
+                let model  = try JSONDecoder().decode([GetCountryListData].self, from: data)
+                XCTAssertFalse(model.isEmpty)
             } catch {
                 XCTAssert(false, error.localizedDescription)
             }

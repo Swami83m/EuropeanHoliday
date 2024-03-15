@@ -17,9 +17,7 @@
 		186984CB2B963D8400F1B799 /* StringFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186984CA2B963D8400F1B799 /* StringFactory.swift */; };
 		186984D12B96434A00F1B799 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186984D02B96434A00F1B799 /* Utility.swift */; };
 		187C9D5D2B9D85A8008D5754 /* RestServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C9D5C2B9D85A8008D5754 /* RestServiceManager.swift */; };
-		187C9D5F2B9D95B0008D5754 /* MockRestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C9D5E2B9D95B0008D5754 /* MockRestClient.swift */; };
 		187C9D632B9DDA7B008D5754 /* GetCountryListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C9D622B9DDA7B008D5754 /* GetCountryListData.swift */; };
-		187C9D652B9DDDE5008D5754 /* CountryListModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C9D642B9DDDE5008D5754 /* CountryListModelView.swift */; };
 		187C9D692B9DE6E8008D5754 /* CountryListMockModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 187C9D682B9DE6E8008D5754 /* CountryListMockModel.json */; };
 		187C9D6A2B9DE6E8008D5754 /* CountryListMockModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 187C9D682B9DE6E8008D5754 /* CountryListMockModel.json */; };
 		187C9D6C2B9DE78F008D5754 /* EuropeanCountryModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C9D6B2B9DE78F008D5754 /* EuropeanCountryModelTests.swift */; };
@@ -32,10 +30,14 @@
 		1896E4732B989FC700C25BE4 /* EuropeanHolidayModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896E4722B989FC700C25BE4 /* EuropeanHolidayModelTests.swift */; };
 		1896E47B2B98B86700C25BE4 /* HolidayMockModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 1896E47A2B98A1A100C25BE4 /* HolidayMockModel.json */; };
 		1896E47C2B98B86700C25BE4 /* HolidayMockModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 1896E47A2B98A1A100C25BE4 /* HolidayMockModel.json */; };
+		18AE538B2BA44193007506AB /* CountryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE538A2BA44193007506AB /* CountryListViewModel.swift */; };
+		18AE538D2BA44A4B007506AB /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE538C2BA44A4B007506AB /* NetworkReachability.swift */; };
+		18AE538F2BA45423007506AB /* MockCountryListServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE538E2BA45423007506AB /* MockCountryListServiceManager.swift */; };
 		18B449C22B9F082B002D82EB /* EuropeanHolidayViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B449C12B9F082B002D82EB /* EuropeanHolidayViewModelTests.swift */; };
 		18B449C42B9F0DD4002D82EB /* EuropeanCountryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B449C32B9F0DD4002D82EB /* EuropeanCountryViewModelTests.swift */; };
 		18B449C72B9F5E98002D82EB /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 18B449C62B9F5E98002D82EB /* .swiftlint.yml */; };
 		18B449C82B9F5F34002D82EB /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 18B449C62B9F5E98002D82EB /* .swiftlint.yml */; };
+		18B6ABBE2BA474BB002D682D /* MockHolidayListServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B6ABBD2BA474BB002D682D /* MockHolidayListServiceManager.swift */; };
 		52962503720D8C3A03D1E83A /* Pods_EuropeanHoliday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4C410F2A1B1E409E76DD8E /* Pods_EuropeanHoliday.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,9 +64,7 @@
 		186984CA2B963D8400F1B799 /* StringFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringFactory.swift; sourceTree = "<group>"; };
 		186984D02B96434A00F1B799 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		187C9D5C2B9D85A8008D5754 /* RestServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestServiceManager.swift; sourceTree = "<group>"; };
-		187C9D5E2B9D95B0008D5754 /* MockRestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRestClient.swift; sourceTree = "<group>"; };
 		187C9D622B9DDA7B008D5754 /* GetCountryListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCountryListData.swift; sourceTree = "<group>"; };
-		187C9D642B9DDDE5008D5754 /* CountryListModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListModelView.swift; sourceTree = "<group>"; };
 		187C9D682B9DE6E8008D5754 /* CountryListMockModel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountryListMockModel.json; sourceTree = "<group>"; };
 		187C9D6B2B9DE78F008D5754 /* EuropeanCountryModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuropeanCountryModelTests.swift; sourceTree = "<group>"; };
 		189291712B97509E005C8B0C /* GetHolidayListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHolidayListData.swift; sourceTree = "<group>"; };
@@ -76,9 +76,13 @@
 		1896E4702B989FC700C25BE4 /* EuropeanHolidayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EuropeanHolidayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1896E4722B989FC700C25BE4 /* EuropeanHolidayModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuropeanHolidayModelTests.swift; sourceTree = "<group>"; };
 		1896E47A2B98A1A100C25BE4 /* HolidayMockModel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HolidayMockModel.json; sourceTree = "<group>"; };
+		18AE538A2BA44193007506AB /* CountryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewModel.swift; sourceTree = "<group>"; };
+		18AE538C2BA44A4B007506AB /* NetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
+		18AE538E2BA45423007506AB /* MockCountryListServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCountryListServiceManager.swift; sourceTree = "<group>"; };
 		18B449C12B9F082B002D82EB /* EuropeanHolidayViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuropeanHolidayViewModelTests.swift; sourceTree = "<group>"; };
 		18B449C32B9F0DD4002D82EB /* EuropeanCountryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuropeanCountryViewModelTests.swift; sourceTree = "<group>"; };
 		18B449C62B9F5E98002D82EB /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		18B6ABBD2BA474BB002D682D /* MockHolidayListServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHolidayListServiceManager.swift; sourceTree = "<group>"; };
 		4328688B809D89CFFF4FFFB3 /* Pods-EuropeanHoliday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuropeanHoliday.debug.xcconfig"; path = "Target Support Files/Pods-EuropeanHoliday/Pods-EuropeanHoliday.debug.xcconfig"; sourceTree = "<group>"; };
 		AD4C410F2A1B1E409E76DD8E /* Pods_EuropeanHoliday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EuropeanHoliday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8AAAAD5578877C54AC2BF6 /* Pods-EuropeanHoliday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuropeanHoliday.release.xcconfig"; path = "Target Support Files/Pods-EuropeanHoliday/Pods-EuropeanHoliday.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,7 +151,7 @@
 			children = (
 				186984C62B9636DB00F1B799 /* RestClient.swift */,
 				187C9D5C2B9D85A8008D5754 /* RestServiceManager.swift */,
-				187C9D5E2B9D95B0008D5754 /* MockRestClient.swift */,
+				18AE538C2BA44A4B007506AB /* NetworkReachability.swift */,
 			);
 			path = RestManager;
 			sourceTree = "<group>";
@@ -176,7 +180,7 @@
 			children = (
 				186984B52B96343F00F1B799 /* CountryListViewController.swift */,
 				189291772B9787BA005C8B0C /* CountryListTableCell.swift */,
-				187C9D642B9DDDE5008D5754 /* CountryListModelView.swift */,
+				18AE538A2BA44193007506AB /* CountryListViewModel.swift */,
 			);
 			path = CountryList;
 			sourceTree = "<group>";
@@ -196,9 +200,11 @@
 			children = (
 				1896E4792B98A11600C25BE4 /* MockTestJson */,
 				1896E4722B989FC700C25BE4 /* EuropeanHolidayModelTests.swift */,
+				18B449C12B9F082B002D82EB /* EuropeanHolidayViewModelTests.swift */,
 				187C9D6B2B9DE78F008D5754 /* EuropeanCountryModelTests.swift */,
 				18B449C32B9F0DD4002D82EB /* EuropeanCountryViewModelTests.swift */,
-				18B449C12B9F082B002D82EB /* EuropeanHolidayViewModelTests.swift */,
+				18AE538E2BA45423007506AB /* MockCountryListServiceManager.swift */,
+				18B6ABBD2BA474BB002D682D /* MockHolidayListServiceManager.swift */,
 			);
 			path = EuropeanHolidayTests;
 			sourceTree = "<group>";
@@ -400,10 +406,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1892917C2B9793A7005C8B0C /* HolidayListViewController.swift in Sources */,
-				187C9D652B9DDDE5008D5754 /* CountryListModelView.swift in Sources */,
+				18AE538B2BA44193007506AB /* CountryListViewModel.swift in Sources */,
 				187C9D632B9DDA7B008D5754 /* GetCountryListData.swift in Sources */,
 				189291742B9752B4005C8B0C /* Alert.swift in Sources */,
-				187C9D5F2B9D95B0008D5754 /* MockRestClient.swift in Sources */,
 				189291782B9787BA005C8B0C /* CountryListTableCell.swift in Sources */,
 				187C9D5D2B9D85A8008D5754 /* RestServiceManager.swift in Sources */,
 				189291762B977910005C8B0C /* HolidayListViewModel.swift in Sources */,
@@ -413,6 +418,7 @@
 				186984D12B96434A00F1B799 /* Utility.swift in Sources */,
 				189291722B97509E005C8B0C /* GetHolidayListData.swift in Sources */,
 				186984B22B96343F00F1B799 /* AppDelegate.swift in Sources */,
+				18AE538D2BA44A4B007506AB /* NetworkReachability.swift in Sources */,
 				186984B42B96343F00F1B799 /* SceneDelegate.swift in Sources */,
 				186984CB2B963D8400F1B799 /* StringFactory.swift in Sources */,
 			);
@@ -424,7 +430,9 @@
 			files = (
 				18B449C42B9F0DD4002D82EB /* EuropeanCountryViewModelTests.swift in Sources */,
 				1896E4732B989FC700C25BE4 /* EuropeanHolidayModelTests.swift in Sources */,
+				18B6ABBE2BA474BB002D682D /* MockHolidayListServiceManager.swift in Sources */,
 				187C9D6C2B9DE78F008D5754 /* EuropeanCountryModelTests.swift in Sources */,
+				18AE538F2BA45423007506AB /* MockCountryListServiceManager.swift in Sources */,
 				18B449C22B9F082B002D82EB /* EuropeanHolidayViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

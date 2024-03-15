@@ -25,11 +25,8 @@ class HolidayListViewController: UIViewController {
     }(UITableView(frame: .zero, style: .plain))
     
     private let holidayListTableCell = "HolidayTableViewCell"
-    private var holidayListViewModel: HolidayListViewModel! {
-        didSet {
-            holidayListViewModel.viewDelegate = self
-        }
-    }
+    private var holidayListViewModel: HolidayListViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -42,8 +39,7 @@ class HolidayListViewController: UIViewController {
         tableView.register(HolidayTableViewCell.self, forCellReuseIdentifier: holidayListTableCell)
         tableView.backgroundColor = UIColor.white
         
-        holidayListViewModel = HolidayListViewModel()
-        holidayListViewModel.selectedCountry = countryCode
+        holidayListViewModel = HolidayListViewModel.init(viewDelegate: self, selectedCountry: countryCode ?? "")
         holidayListViewModel.getHolidayListfromServer()
         
         setUpNavigationBar()
@@ -97,7 +93,7 @@ extension HolidayListViewController: UITableViewDataSource, UITableViewDelegate 
     }
 }
 
-extension HolidayListViewController: HolidayListVMDelegate {
+extension HolidayListViewController: HolidayListViewModelDelegate {
     
     func fetchDataFailure(message: String, canRetry: Bool) {
         if canRetry {

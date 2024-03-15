@@ -7,16 +7,15 @@
 
 import XCTest
 @testable import  EuropeanHoliday
-final class EuropeanCountryViewModelTests: XCTestCase, CountryListVMDelegate {
-
-    var sut: CountryListModelView!
+final class EuropeanCountryViewModelTests: XCTestCase, CountryListViewModelDelegate {
+    
+    var sut: CountryListViewModel!
     var expectation: XCTestExpectation!
     var countryList: [GetCountryListData] = []
     
     override func setUp() {
-        expectation = self.expectation(description: "Country List Should be fetched")
-        sut = CountryListModelView()
-        sut.viewDelegate = self
+        sut = CountryListViewModel.init(restClient: MockCountryListServiceManager(), viewDelegate: self)
+        
     }
     
     override func tearDown() {
@@ -26,8 +25,9 @@ final class EuropeanCountryViewModelTests: XCTestCase, CountryListVMDelegate {
     
     func testDataViewModel()
     {
-        sut.getCountryListByMockModel(dataModel: getSampleMockedJSON())
-        wait(for: [expectation], timeout: 4)
+        expectation = self.expectation(description: "Country List Should be fetched")
+        sut.getCountryListFromServer()
+        wait(for: [expectation], timeout: 8)
         XCTAssertFalse(countryList.isEmpty)
     }
     
@@ -36,23 +36,6 @@ final class EuropeanCountryViewModelTests: XCTestCase, CountryListVMDelegate {
         expectation.fulfill()
     }
     
-    func getSampleMockedJSON() -> [GetCountryListData] {
-        // Your mock JSON data
-        let jsonData = """
-            {
-                "countryCode": "AU",
-                "name": "Australia",
-            }
-            """.data(using: .utf8)!
-        // Use JSONDecoder to parse the data into your model
-        do {
-            let country = try JSONDecoder().decode(GetCountryListData.self, from: jsonData)
-            return [country]
-            
-        } catch {
-            return []
-        }
-    }
     
     func fetchDataFailure(message: String, canRetry: Bool) {
         expectation.fulfill()

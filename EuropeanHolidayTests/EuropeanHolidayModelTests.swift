@@ -2,22 +2,21 @@
 //  EuropeanHolidayTests.swift
 //  EuropeanHolidayTests
 //
-//  
+//
 //
 
 import XCTest
 @testable import EuropeanHoliday
 final class EuropeanHolidayModelTests: XCTestCase {
-    var holidayModel: [GetHolidayListData] = []
-    var sut: MockRestClient!
+    
     override func setUp() {
-        sut = MockRestClient()
+        
     }
     override func tearDown() {
-        sut = nil
+        
         super.tearDown()
     }
-    func testParsingMockJSON() {
+    func testIsHolidayModelValidity() {
         // Your mock JSON data
         let jsonData = """
             {
@@ -38,14 +37,7 @@ final class EuropeanHolidayModelTests: XCTestCase {
             XCTFail("Failed to decode JSON: \(error)")
         }
     }
-    func testEmptyHolidayTitle() {
-        let emptyHolidayName = "TSST"
-        let isEmptyName = isEmptyChecking(title: emptyHolidayName)
-        XCTAssertFalse(isEmptyName, "Name should not be empty")
-    }
-    func isEmptyChecking(title: String) -> Bool {
-        return title.isEmpty
-    }
+    
     func testHolidayList() {
         let t = type(of: self)
         let bundle = Bundle(for: t.self)
@@ -53,18 +45,7 @@ final class EuropeanHolidayModelTests: XCTestCase {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
                 let model  = try JSONDecoder().decode([GetHolidayListData].self, from: data)
-                
-                sut.getRequestForJSON(apiKey:"",
-                    serviceScheme: HolidayServiceScheme.holidayListJSON,
-                                             holidayResponseModel: [GetHolidayListData].self, mockJsonModel: data) { [self] (success, json, message) in
-                    if success {
-                    guard let dataModel = json else { fatalError("Unexpected data") } // if success json shouldn't be null
-                        if dataModel.count > 0 {
-                            self.holidayModel  = dataModel
-                        }
-                    }
-                }
-            XCTAssertFalse(model.isEmpty)
+                XCTAssertFalse(model.isEmpty)
             } catch {
                 XCTAssert(false, error.localizedDescription)
             }

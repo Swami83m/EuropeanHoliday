@@ -54,13 +54,9 @@ class CountryListViewController: UIViewController, UINavigationControllerDelegat
         return $0
     }(UITableView(frame: .zero, style: .plain))
     
-   private let countryTableViewCell = "CountryListTableCell"
+    private let countryTableViewCell = "CountryListTableCell"
     
-   private  var countryListViewModel: CountryListModelView! {
-        didSet {
-            countryListViewModel.viewDelegate = self
-        }
-    }
+    private  var countryListViewModel: CountryListViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +90,7 @@ class CountryListViewController: UIViewController, UINavigationControllerDelegat
         tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
         tableView.register(CountryListTableCell.self, forCellReuseIdentifier: countryTableViewCell)
         
-        countryListViewModel = CountryListModelView()
+        countryListViewModel = CountryListViewModel.init(viewDelegate: self)
         countryListViewModel.getCountryListFromServer()
     }
     
@@ -140,7 +136,7 @@ extension CountryListViewController: UITableViewDataSource, UITableViewDelegate 
     }
 }
 
-extension CountryListViewController: CountryListVMDelegate {
+extension CountryListViewController: CountryListViewModelDelegate {
     
     func fetchDataFailure(message: String, canRetry: Bool) {
         if canRetry {

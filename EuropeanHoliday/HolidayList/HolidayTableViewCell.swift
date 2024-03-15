@@ -62,7 +62,7 @@ class HolidayTableViewCell: UITableViewCell {
         setupViews()
     }
     
-   private func setupViews() {
+    private func setupViews() {
         self.contentView.backgroundColor = UIColor.clear
         self.contentView.clipsToBounds = true
         
@@ -82,7 +82,7 @@ class HolidayTableViewCell: UITableViewCell {
         self.selectedBackgroundView = nil
     }
     
-     func setupHolidayInformation(holidayData: GetHolidayListData) {
+    func setupHolidayInformation(holidayData: GetHolidayListData) {
         dateLable.text = holidayData.date
         fixedLabel.text = "Fixed Holiday: " + holidayData.fixed.map { String($0) }!
         nameLable.text = holidayData.name

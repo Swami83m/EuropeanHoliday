@@ -9,15 +9,15 @@ import UIKit
 
 class CountryListTableCell: UITableViewCell {
     
-   private var countryTitle: String?
-   private let headingLabel: UILabel = {
+    private var countryTitle: String?
+    private let headingLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-   
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -43,5 +43,5 @@ class CountryListTableCell: UITableViewCell {
         self.countryTitle = countryData.countryName
         headingLabel.text = self.countryTitle
     }
-
+    
 }

@@ -2,7 +2,7 @@
 //  RestClient.swift
 //  EuropeanHoliday
 //
-//  
+//
 //
 
 import Foundation
@@ -14,17 +14,10 @@ import Alamofire
 private let httpProtocol                     = "https://"
 private let hostName                         = "date.nager.at/api/v3/"
 
-
 #else
 
 #endif
 
-class Connectivity {
-    // check for network connectivity using Alamofire
-    class var isConnectedToInternet: Bool {
-        return NetworkReachabilityManager()!.isReachable
-    }
-}
 
 struct ServiceScheme {
     let baseURL: String
@@ -32,29 +25,9 @@ struct ServiceScheme {
 }
 
 
-// MARK: - Struct to create an error message object
-struct ErrorMessage: Decodable {
-    var enMessage: String?
-    var message: String?
-    
-    private enum CodingKeys: String, CodingKey {
-        case enMessage = "ENErrorMessage"
-        case message = "message"
-    }
-}
-
-// make it easy to handle different REST service configuration
-enum HolidayServiceScheme {
-    case holidayListJSON
-    
-    func getRequestProperties(apiUrl: String? = nil)->ServiceScheme{
-        switch self {
-            
-        case .holidayListJSON:
-            return ServiceScheme(baseURL: httpProtocol + hostName,
-                                 header: ["Content-Type": "application/json"])
-        }
-    }
+func getRequestProperties(apiUrl: String? = nil)->ServiceScheme{
+    return ServiceScheme(baseURL: httpProtocol + hostName,
+                         header: ["Content-Type": "application/json"])
 }
 
 class RestClient: RestServiceManager {
@@ -72,30 +45,17 @@ class RestClient: RestServiceManager {
         return Alamofire.Session(configuration: configuration)
     }()
     
-   
     
-     func getRequestForJSON<T>(apiKey: String,serviceScheme: HolidayServiceScheme, holidayResponseModel: T.Type, mockJsonModel: Data? = nil, completion: @escaping (Bool, T?, String) -> ()) where T : Decodable  {
-        // check for a network connection
-        if (Connectivity.isConnectedToInternet == false){
-            DispatchQueue.main.async {
-                completion( false, nil, StringFactory.Messages.no_internet)
-            }
-            
-            return
-        }
-    
-        if  mockJsonModel != nil {
-            return
-        }
+    func fetchDataFromRestAPI<T>(apiKey: String,holidayResponseModel: T.Type, completion: @escaping (Bool, T?, String) -> ()) where T : Decodable  {
         
         var serviceURL = ""
         if !apiKey.isEmpty {
             // create a service call configuration based on run environment
-            serviceURL = serviceScheme.getRequestProperties().baseURL + apiKey.trim()
+            serviceURL = getRequestProperties().baseURL + apiKey.trim()
         }
-        let serviceHeader = serviceScheme.getRequestProperties().header
+        let serviceHeader = getRequestProperties().header
         
-         RestClient.sessionMananger.request(serviceURL, method: .get, parameters: nil, encoding: JSONEncoding.prettyPrinted, headers: serviceHeader)
+        RestClient.sessionMananger.request(serviceURL, method: .get, parameters: nil, encoding: JSONEncoding.prettyPrinted, headers: serviceHeader)
             .responseData(queue: DispatchQueue.global(qos: .utility)) { response in
                 
                 if case .success(_) = response.result{
