@@ -3,7 +3,7 @@
 
  **Introduction**
  An iOS native application to demonstrate the integration of RESTFUL services and update the  User Interface with received data. This application 
- uses the PUBLIC API to get the get the data from server using native network methods and display it into UITableView. The application follows 
+ uses the PUBLIC API to get the data from server using native network methods and display it into UITableView. The application follows 
  MVVM architecture, SOLID principles for concern separation, cocoa pods for API network calls and Code coverage.  Moreover Unit testing is 
  performed at Mocking the API calls and parsing .json file inside the project bundle. 
 
@@ -32,10 +32,10 @@ Deployment Target – iOS 17.0
 In future, the year can be passed as dynamic value instead of default value 2024 from the API (https://date.nager.at/api/v3/publicholidays/2024/). We can design the “Date Picker” component in the UI where can select the specific year to view the list of holidays for that particular year for the selected country.
 
 **Project Setup**
-Install the cocoa pods to support to make use of integrated framework
-Navigate to the project root folder and run “Pod install”
-We can find the .xcworkspace file after the successful “Pod install” operation
-Click the “Run” button to execute the application
+Install the cocoa pods to support for make use of integrated framework(Alamofire & SwiftLint)
+Navigate to the project root folder and run “Pod install”.
+We can find the .xcworkspace file after the successful “Pod install” operation.
+Click the “Run” button to execute the application.
 
 
 
